@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	body, html {
+  		height: 100%;
+  		margin: 0;
+	}
+	.btn-group .button {
+		width: 10%;
+  		background-color: #4CAF50; /* Green */
+ 		border: none;
+  		color: white;
+  		padding: 15px;
+  		text-align: center;
+  		text-decoration: none;
+  		display: inline-block;
+  		font-size: 20;
+  		cursor: pointer;
+	}
+
+	.btn-group .button:hover {
+  		background-color: #3e8e41;
+	}
+</style>
+
+<!--<body background="/media/temp/front.jpg">-->
+<div class="btn-group"><center>
+	<br><br><br><br>
+	<img style="width: 20%; height: 20%" class="responsive" src="/media/temp/split.png">
+	<br><br><br>
+	<a href="{% url 'login' %}" class="button">Login</a>
+	<br><br>
+	<a href="{% url 'register' %}" class="button">Register</a>
+</center></div>

@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+{% block content %}
+	{% for post in posts %}
+  {% if post.author == user.username %}
+		<article class="media content-section">
+  			<div class="media-body">
+    			<div class="article-metadata">
+      				<a class="mr-2" href="#">{{ post.friend }}</a>
+      				<medium class="text-muted">{{ post.date_posted|date:"F d, Y" }}</medium>
+    			</div>
+    		{%if post.abs_amount > 0 %}
+    		<h3>{{ post.friend }} owes you {{ post.abs_amount }} rupees.</h3>
+    		{% elif post.abs_amount < 0 %}
+    		<h3>You owe {{ post.friend }} ABS({{ post.abs_amount }}) rupees.</h3>
+    		{% endif %}
+  			</div>
+		</article>
+  <!--{% endif %}-->
+	{% endfor %}
+  <div class="btn-group"><center>
+    <a href="{% url 'post-create' %}" class="button"> + ADD TRANSACTION </a>
+  </center></div>
+{% endblock content %}
+

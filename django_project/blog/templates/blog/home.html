@@ -1,0 +1,29 @@
+{% extends "blog/base.html" %}
+{% block content %}
+	{% for i in friends %}
+  {% if i.author_name == user.id or i.friend_name == user.username %}-->
+		<article class="media content-section">
+  			<div class="media-body">
+    			<div class="article-metadata">
+      				<a class="mr-2" href="#">{{ i.friend_name }}</a>
+      				<!--<medium class="text-muted">{{ post.date_posted|date:"F d, Y" }}</medium>-->
+    			</div>
+          <div>
+            {% if i.abs_amount > 0 %}
+            <h4 class="article-content">owes you {{ i.abs_amount }}</h4>
+            {%elif abs_amount < 0 %}
+            <h4 class="article-content">you owe ABS({{ i.abs_amount }})</h4>
+            {% elif abs_amount == 0 %}
+            <h4 class="article-content">Settled up!</h4>
+            {% endif %}
+          </div>
+  			</div>
+		</article>
+  <!--{% endif %}-->
+	{% endfor %}
+  <div class="btn-group"><center>
+    <a href="{% url 'friend-create' %}" class="button"> + ADD FRIENDS </a>
+  </center></div>
+{% endblock content %}
+
+
